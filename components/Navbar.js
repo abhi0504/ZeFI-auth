@@ -9,7 +9,7 @@ const Navbar = (props) => {
     <View>
       <View style={styles.navbar}>
         <View style={styles.navbarIcon1}>
-          <View style={{marginLeft: 5 , flexDirection: "row"}}>
+          <View style={{flex: 1,marginLeft: 5 , flexDirection: "row" , justifyContent: "space-between"}}>
             <Text
               style={{
                 color: 'white',
@@ -18,7 +18,9 @@ const Navbar = (props) => {
               }}>
               ZeFi
             </Text>
+            <View style={{marginTop: 10}}>
             {props.children}
+            </View>
           </View>
         </View>
       </View>

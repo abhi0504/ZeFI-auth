@@ -14,16 +14,10 @@ export default function MainNavigator(props) {
 const isAuth = useSelector(state => !!state.auth.token);
 
 const [value , setValue] = React.useState(null);
-const [check , setCheck] = React.useState(false);
 
 React.useEffect(async () => {
-  
   const token = await AsyncStorage.getItem('user_token');
   setValue(token);
-  if(value!=null)
-  {
-    setCheck(true);
-  }
 },[])
 
   return (
