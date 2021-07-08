@@ -1,5 +1,5 @@
-import { Magic } from 'magic-sdk';
-const magic = new Magic(process.env.REACT_APP_PK_KEY);
+import { Magic } from '@magic-sdk/react-native';
+const magic = new Magic('pk_live_89170ADB732D6340');
 
 export const checkUser = async (cb) => {
   const isLoggedIn = await magic.user.isLoggedIn();
@@ -10,8 +10,15 @@ export const checkUser = async (cb) => {
   return cb({ isLoggedIn: false });
 };
 
+
 export const loginUser = async (email) => {
-  await magic.auth.loginWithMagicLink({ email });
+
+    try {
+        const res = await magic.auth.loginWithMagicLink({ email });
+        return res;
+    } catch (error) {
+        return error;
+    }
 };
 
 export const logoutUser = async () => {

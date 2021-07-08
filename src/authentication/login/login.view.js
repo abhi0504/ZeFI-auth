@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Image, Text, TextInput, TouchableOpacity, View , ActivityIndicator} from 'react-native';
 import Navbar from '../../../components/Navbar';
 import loginStyles from './login.styles';
 
@@ -22,7 +22,7 @@ const LoginView = props => {
             <View>
               <TextInput
                 style={loginStyles.input}
-                onChangeText={value => props.onChangeText('email', value)}
+                onChangeText={value => props.setEmail(value)}
                 // value={text}
                 placeholder="Email"
               />
@@ -33,9 +33,10 @@ const LoginView = props => {
             </View>
           </View>
           <View style={loginStyles.loginButton}>
+          {props.loading ? <ActivityIndicator size="large" color="#00ff00" /> : 
             <TouchableOpacity onPress={props.login} style={loginStyles.submit}>
               <Text style={loginStyles.loginText}>Login</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> }
           </View>
         </View>
       </View>

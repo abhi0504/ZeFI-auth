@@ -4,12 +4,12 @@ import {Text, View, Dimensions, StyleSheet, Image} from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <View>
       <View style={styles.navbar}>
         <View style={styles.navbarIcon1}>
-          <View style={{marginLeft: 5}}>
+          <View style={{marginLeft: 5 , flexDirection: "row"}}>
             <Text
               style={{
                 color: 'white',
@@ -18,6 +18,7 @@ const Navbar = () => {
               }}>
               ZeFi
             </Text>
+            {props.children}
           </View>
         </View>
       </View>

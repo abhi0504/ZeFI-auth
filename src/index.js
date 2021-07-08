@@ -11,19 +11,12 @@ const Stack = createStackNavigator();
 
 export default function MainNavigator(props) {
 
-  const isAuth = useSelector(state => !!state.auth.token);
-  const didTryAutoLogin = useSelector(state => {
-    console.log(state);
-    console.log("&&&&&&&&&&&&&");
-  });
+const isAuth = useSelector(state => !!state.auth.token);
 
 const [value , setValue] = React.useState(null);
 const [check , setCheck] = React.useState(false);
 
 React.useEffect(async () => {
-  console.log("LOGGING SOME VALUES");
-  console.log(isAuth);
-  console.log(didTryAutoLogin);
   
   const token = await AsyncStorage.getItem('user_token');
   setValue(token);
